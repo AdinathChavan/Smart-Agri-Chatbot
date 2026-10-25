@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f7ef" />
+    <title>Fieldwise — Smart Agriculture Assistant</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Chat navigation">
+        <a class="brand" href="#" aria-label="Fieldwise home">
+          <span class="brand-mark" aria-hidden="true">F</span>
+          <span>fieldwise<span class="brand-period">.</span></span>
+        </a>
+
+        <button class="new-chat-button" id="new-chat" type="button">
+          <span aria-hidden="true">＋</span> New conversation
+        </button>
+
+        <div class="sidebar-note">
+          <span class="leaf-icon" aria-hidden="true">✳</span>
+          <span class="sidebar-note-label">GROW WITH CONFIDENCE</span>
+          <p>Better decisions,<br />from seed to harvest.</p>
+        </div>
+
+        <div class="sidebar-footer">
+          <div class="online-indicator"><span></span> Your AI farm guide</div>
+          <p>Thoughtful answers for<br />healthier, stronger fields.</p>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div class="mobile-brand">
+            <span class="brand-mark" aria-hidden="true">F</span>
+            <span>fieldwise<span class="brand-period">.</span></span>
+          </div>
+          <span class="topic-label">YOUR EVERYDAY FARMING COMPANION</span>
+          <div class="topbar-status"><span></span> Ready to help</div>
+        </header>
+
+        <section class="chat-area" aria-label="Chat with Fieldwise">
+          <div class="conversation" id="conversation" aria-live="polite">
+            <div class="welcome" id="welcome">
+              <div class="welcome-hero">
+                <div class="welcome-copy-block">
+                  <div class="welcome-kicker"><span>✳</span> ROOTED IN PRACTICAL KNOW-HOW</div>
+                  <h1>Good things<br />grow from <em>good advice.</em></h1>
+                  <p class="welcome-copy">
+                    Your thoughtful companion for healthier soil, stronger crops, and more confident decisions.
+                  </p>
+                </div>
+                <div class="hero-art" aria-hidden="true">
+                  <div class="hero-sun"></div>
+                  <div class="hero-ring hero-ring-one"></div>
+                  <div class="hero-ring hero-ring-two"></div>
+                  <svg class="hero-plant" viewBox="0 0 180 190" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M91 167C90 132 91 91 97 47" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+                    <path d="M94 112C69 110 49 96 43 73C67 70 89 83 94 112Z" fill="currentColor" fill-opacity=".86"/>
+                    <path d="M96 85C102 59 122 42 147 43C145 68 126 86 96 85Z" fill="currentColor"/>
+                    <path d="M91 143C70 141 53 129 48 111C69 109 87 120 91 143Z" fill="currentColor" fill-opacity=".65"/>
+                    <path d="M48 169H140" stroke="#B98453" stroke-width="5" stroke-linecap="round"/>
+                    <path d="M62 181H127" stroke="#D3A06D" stroke-width="3" stroke-linecap="round"/>
+                  </svg>
+                  <div class="hero-art-caption"><span>✳</span> A little knowledge<br />goes a long way.</div>
+                </div>
+              </div>
+              <div class="prompt-heading">
+                <div><span>START WITH A QUESTION</span><strong>What would you like to grow?</strong></div>
+                <span class="prompt-heading-mark" aria-hidden="true">↘</span>
+              </div>
+              <div class="suggestion-grid">
+                <button class="suggestion" type="button" data-prompt="How can I improve soil health before planting?">
+                  <span class="suggestion-icon soil-icon" aria-hidden="true">◉</span>
+                  <span><strong>Build healthier soil</strong><small>Prepare for the next planting</small></span>
+                  <span class="suggestion-arrow" aria-hidden="true">↗</span>
+                </button>
+                <button class="suggestion" type="button" data-prompt="What are sustainable ways to manage pests in my crops?">
+                  <span class="suggestion-icon pest-icon" aria-hidden="true">⌁</span>
+                  <span><strong>Manage crop pests</strong><small>Explore sustainable approaches</small></span>
+                  <span class="suggestion-arrow" aria-hidden="true">↗</span>
+                </button>
+                <button class="suggestion" type="button" data-prompt="How can I make my farm's irrigation more water efficient?">
+                  <span class="suggestion-icon water-icon" aria-hidden="true">⌇</span>
+                  <span><strong>Use water wisely</strong><small>Make irrigation more efficient</small></span>
+                  <span class="suggestion-arrow" aria-hidden="true">↗</span>
+                </button>
+                <button class="suggestion" type="button" data-prompt="Which climate-smart practices could help my farm?">
+                  <span class="suggestion-icon climate-icon" aria-hidden="true">☼</span>
+                  <span><strong>Plan for changing weather</strong><small>Discover climate-smart practices</small></span>
+                  <span class="suggestion-arrow" aria-hidden="true">↗</span>
+                </button>
+              </div>
+              <p class="welcome-footnote"><span>✳</span> Ask about crops, soil, irrigation, pests, or farm technology.</p>
+            </div>
+            <div class="messages" id="messages"></div>
+          </div>
+        </section>
+
+        <footer class="composer-wrap">
+          <form class="composer" id="chat-form">
+            <label class="visually-hidden" for="message-input">Message Fieldwise</label>
+            <textarea
+              id="message-input"
+              rows="1"
+              placeholder="Ask anything about your farm..."
+              required
+            ></textarea>
+            <button class="send-button" id="send-button" type="submit" aria-label="Send message">
+              <span aria-hidden="true">↑</span>
+            </button>
+          </form>
+          <div class="composer-meta">
+            <span>↵ <b>Enter</b> to send <span class="meta-divider">·</span> <b>Shift + Enter</b> for a new line</span>
+            <p class="disclaimer">AI can make mistakes. Verify important decisions with a local expert.</p>
+          </div>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>
